@@ -1,0 +1,221 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: #eee;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #f5c518;
+  margin-bottom: 0.3rem;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  text-align: center;
+  color: #555;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.search-box { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
+
+input {
+  padding: 0.75rem 1rem;
+  width: 380px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: #1e1e1e;
+  color: #eee;
+  outline: 2px solid #333;
+}
+input:focus { outline-color: #f5c518; }
+
+button {
+  padding: 0.75rem 1.5rem;
+  background: #f5c518;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+button:hover { background: #e6b800; }
+
+#error { color: #ff6b6b; text-align: center; margin-bottom: 1rem; min-height: 1.2rem; }
+
+#loader { text-align: center; color: #aaa; margin: 2rem 0; display: none; }
+
+.spinner {
+  display: inline-block;
+  width: 28px; height: 28px;
+  border: 3px solid #333;
+  border-top-color: #f5c518;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Hero card (searched movie) ── */
+#hero { max-width: 860px; margin: 0 auto 3rem; }
+
+.hero-card {
+  display: flex;
+  gap: 2rem;
+  background: #1a1a1a;
+  border: 2px solid #f5c518;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(245, 197, 24, 0.12);
+}
+
+.hero-poster {
+  width: 220px;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-no-poster {
+  width: 220px;
+  flex-shrink: 0;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  font-size: 0.85rem;
+}
+
+.hero-body { padding: 1.6rem 1.6rem 1.6rem 0; flex: 1; }
+
+.hero-tag {
+  display: inline-block;
+  background: #f5c518;
+  color: #000;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.hero-meta {
+  font-size: 0.82rem;
+  color: #666;
+  margin-bottom: 0.9rem;
+}
+
+.hero-genre { margin-bottom: 0.8rem; }
+
+.badge {
+  display: inline-block;
+  background: #2a2a2a;
+  border-radius: 4px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  margin-right: 0.3rem;
+  color: #bbb;
+}
+
+.hero-plot {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+}
+
+.hero-ratings { margin-bottom: 1rem; }
+
+/* Worth score badge */
+.worth-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  background: #111;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.worth-score { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.worth-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Rating bars */
+.rating-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
+.rating-label { font-size: 0.7rem; font-weight: 700; width: 30px; flex-shrink: 0; }
+.rating-bar-bg { flex: 1; background: #2a2a2a; border-radius: 4px; height: 6px; overflow: hidden; }
+.rating-bar { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+.rating-value { font-size: 0.78rem; font-weight: bold; width: 30px; text-align: right; }
+
+/* People */
+.people { font-size: 0.78rem; color: #666; margin-top: 0.4rem; line-height: 1.6; }
+
+/* ── Section divider ── */
+.section-header {
+  max-width: 860px;
+  margin: 0 auto 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-header span {
+  font-size: 0.72rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+.section-header hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* ── Similar movies grid ── */
+#similar { max-width: 860px; margin: 0 auto; }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+/* Small cards */
+.card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+
+.card img { width: 100%; height: 240px; object-fit: cover; display: block; }
+.no-poster {
+  width: 100%; height: 240px;
+  background: #222;
+  display: flex; align-items: center; justify-content: center;
+  color: #444; font-size: 0.8rem;
+}
+
+.card-body { padding: 0.85rem; }
+.card-body .title { font-size: 0.88rem; font-weight: 600; color: #eee; margin-bottom: 0.2rem; }
+.card-body .year { font-size: 0.72rem; color: #555; margin-bottom: 0.6rem; }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MLens - Movie Comparison</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <h1>🎬 MLens</h1>
+  <p class="tagline">See how your movie stacks up against the top rated in its genre.</p>
+
+  <div class="search-box">
+    <input type="text" id="movieInput" placeholder="e.g. Inception, Vikram, Parasite..."/>
+    <button onclick="searchMovie()">Search</button>
+  </div>
+
+  <p id="error"></p>
+  <div id="loader"><span class="spinner"></span> Fetching movie data...</div>
+  <div id="hero"></div>
+  <div id="similar"></div>
+  <script src="app.js"></script>
+</body>
+</html>
